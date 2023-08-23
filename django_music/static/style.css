@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Assistant:400,700|Playfair+Display:900");
+
 :root {
     --clr-light: #f6f6f6;
     --clr-dark: #0A1045;
     --clr-primary: #ccc;
     --clr-secondary: #7d7d7d;
     --clr-accent: #009FFD;
+    --clr-test: #FF0000;
 
     --foreground: var(--clr-light);
     --background: var(--clr-dark);
@@ -15,4 +18,72 @@ body {
 
 h1 {
     color: var(--clr-dark);
+}
+
+.albumList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.albumBox {
+    border: 20 px lightgrey;
+    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px #ffffff;
+    background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
+    display: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5%;
+    padding: 2%;
+    margin: 8px;
+}
+
+.albumBox {
+    width: 26%;
+}
+
+@media (max-width: 1200px) {
+    .albumBox {
+        width: 30%;
+    }
+}
+
+@media (max-width: 992px) {
+    .albumBox {
+        width: 40%;
+    }
+}
+
+@media (max-width: 768px) {
+    .albumBox {
+        width: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .albumBox {
+        width: 90%;
+    }
+}
+
+.albumTitle {
+    font-family: "Arial", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.albumArtist {
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    color: #666;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

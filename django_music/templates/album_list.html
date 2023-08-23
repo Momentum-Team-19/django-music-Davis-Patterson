@@ -11,11 +11,16 @@
 
 <body>
     <h1>Album List</h1>
-    <ul>
+    <div class="albumList">
         {% for album in albums %}
-        <li><a href="{% url 'album_detail' album.pk %}">{{ album.title }}</a> by {{ album.artist }}</li>
+        <a href="{% url 'album_detail' album.pk %}" class="albumBox">
+            <div class="detailBox">
+                <h2 class="albumTitle">{{ album.title }}</h2>
+                <p class="albumArtist">{{ album.artist }}</p>
+            </div>
+        </a>
         {% endfor %}
-    </ul>
+    </div>
     <a href="{% url 'create_album' %}">Create New Album</a>
 
 </body>
