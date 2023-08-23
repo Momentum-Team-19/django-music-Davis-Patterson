@@ -51,7 +51,7 @@ In your project directory, get a new Django project set up. Don't forget the `.`
 ```
 > pipenv install django
 > pipenv shell
-> django-admin startproject django_music .
+> django-admin startproject config >
 ```
 
 After you run this, your directory structure should look like this:

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album Detail</title>
+</head>
+
+<body>
+    <h1>Album Detial</h1>
+    <h2>{{ album.title }}</h2>
+    <p>Artist: {{ album.artist }}</p>
+    <p>Created At: {{ album.created_at }}</p>
+    <a href="{% url 'edit_album' album.pk %}">Edit Album</a>
+    <a href="{% url 'delete_album' album.pk %}">Delete Album</a>
+    <a href="{% url 'album_list' %}">Back To Album List</a>
+</body>
+
+</html>

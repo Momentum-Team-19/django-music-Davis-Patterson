@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-g">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if form.instance.pk %}Edit Album{% else %}Create Album{% endif %}</title>
+</head>
+
+<body>
+    <h1>{% if form.instance.pk %}Edit Album{% else %}Create Album{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">SAVE</button>
+    </form>
+    <a href="{% url 'album_list' %}">Back to Album Lists</a>
+</body>
+
+</html>
