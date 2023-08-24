@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'darkmode.js' %}" defer></script>
     <title>Album Detail</title>
 </head>
 
@@ -13,6 +14,11 @@
     <header>
         <h1 class="pageName">Album Detail</h1>
     </header>
+
+    <button id="darkModeToggle" class="dark-mode-toggle" aria-label="toggle dark mode">
+        <img src="{% static 'icons/darkmode.svg' %}" alt="Dark Mode Icon">
+    </button>
+
     <div class="container">
         <div class="albumDetail">
             <h2 class="albumTitle">{{ album.title }}</h2>

@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django_music import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,3 +30,6 @@ urlpatterns = [
     path('albums/<int:pk>/edit', views.edit_album, name='edit_album'),
     path('albums/<int:pk>/delete', views.delete_album, name='delete_album'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
