@@ -154,25 +154,19 @@ header {
 
 @media (max-width: 1200px) {
     .albumBox {
-        width: 30%;
+        width: 26%;
     }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 900px) {
     .albumBox {
         width: 40%;
     }
 }
 
-@media (max-width: 768px) {
-    .albumBox {
-        width: 50%;
-    }
-}
-
 @media (max-width: 576px) {
     .albumBox {
-        width: 90%;
+        width: 60%;
     }
 }
 
