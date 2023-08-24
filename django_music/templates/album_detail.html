@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <script src="{% static 'darkmode.js' %}" defer></script>
+    <script src="{% static 'otheralbums.js' %}" defer></script>
     <title>Album Detail</title>
 </head>
 
@@ -23,9 +24,26 @@
         <div class="albumDetail">
             <h2 class="albumTitle">{{ album.title }}</h2>
             <p class="albumArtist">Artist: {{ album.artist }}</p>
-            <p class="albumCreated">Created At: {{ album.created_at }}</p>
+            <p class="albumCreated">Created At: {{ album.created_date }}</p>
         </div>
     </div>
+
+    <div class="otherAlbumContainer">
+        <div class="otherContainerColumn">
+            <div class="otherTitleBox">
+                <p class="otherTitle">Other albums by:</p>
+                <p class="otherTitle2">{{ album.artist }}</p>
+            </div>
+            <div class="otherContainer">
+                {% for other_album in other_albums %}
+                <a href="{% url 'album_detail' other_album.pk %}" class="otherAlbums">
+                    <div class="otherAlbumText">{{ other_album.title }}</div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
     <div class="footerOptions">
         <a class="footerOption" href="{% url 'edit_album' album.pk %}">Edit Album</a>
         <a class="footerOption" href="{% url 'delete_album' album.pk %}">Delete Album</a>

@@ -93,7 +93,7 @@ header {
 }
 
 .homeOption {
-    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px #ffffff;
+    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-light);
     background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
     display: column;
     justify-content: center;
@@ -114,7 +114,7 @@ header {
 
 .homeOption:active {
     box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2),
-        inset -2px -2px 4px #fff;
+        inset -2px -2px 4px var(--clr-light);
     background-color: #f9f9f9;
     transform: translateY(1px);
     transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
@@ -131,7 +131,7 @@ header {
 }
 
 .albumBox {
-    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px #ffffff;
+    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-light);
     background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
     display: column;
     justify-content: center;
@@ -179,7 +179,7 @@ header {
 
 .albumBox:active {
     box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2),
-        inset -2px -2px 4px #fff;
+        inset -2px -2px 4px var(--clr-light);
     background-color: #f9f9f9;
     transform: translateY(1px);
     transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
@@ -217,7 +217,7 @@ header {
 }
 
 .albumDetail {
-    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px #ffffff;
+    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-light);
     background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
     display: column;
     justify-content: center;
@@ -228,8 +228,123 @@ header {
     width: 40%;
 }
 
+.otherContainerColumn {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 100%;
+    border-top: 1px solid var(--clr-primary);
+    padding-top: 10px;
+}
+
+.otherContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+/* .otherTitleBox {
+    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-light);
+    background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
+    border-radius: 5%;
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 5px;
+} */
+
+.otherTitle {
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--clr-dark);
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.otherTitle2 {
+    font-family: "Arial", sans-serif;
+    font-size: 15px;
+    color: var(--clr-dark);
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
+}
+
+.otherAlbums {
+    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-light);
+    background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
+    display: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5%;
+    padding: 2%;
+    margin: 8px;
+    text-decoration: none;
+}
+
+.otherAlbums {
+    width: 16%;
+}
+
+@media (max-width: 1200px) {
+    .otherAlbums {
+        width: 20%;
+    }
+}
+
+@media (max-width: 992px) {
+    .otherAlbums {
+        width: 30%;
+    }
+}
+
+@media (max-width: 768px) {
+    .otherAlbums {
+        width: 40%;
+    }
+}
+
+@media (max-width: 576px) {
+    .albotherAlbumsumBox {
+        width: 80%;
+    }
+}
+
+.otherAlbums:hover {
+    background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.3));
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.otherAlbums:active {
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2),
+        inset -2px -2px 4px var(--clr-light);
+    background-color: #f9f9f9;
+    transform: translateY(1px);
+    transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
+}
+
+.otherAlbumText {
+    font-family: "Arial", sans-serif;
+    font-size: 14px;
+    /* font-weight: bold; */
+    color: #333;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .albumEdit {
-    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px #ffffff;
+    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-light);
     background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
     display: flex;
     flex-direction: column;

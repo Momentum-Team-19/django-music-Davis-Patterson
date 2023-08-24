@@ -24,9 +24,18 @@ def create_album(request):
     return render(request, 'album_form.html', {'form': form})
 
 
-def album_detail(request, pk):
-    album = get_object_or_404(Album, pk=pk)
-    return render(request, 'album_detail.html', {'album': album})
+def album_detail(request, album_id):
+    album = get_object_or_404(Album, pk=album_id)
+    
+    # Get other albums by the same artist, excluding the current album
+    other_albums = Album.objects.filter(artist=album.artist).exclude(pk=album.pk)
+    
+    context = {
+        'album': album,
+        'other_albums': other_albums,
+    }
+    
+    return render(request, 'album_detail.html', context)
 
 
 def edit_album(request, pk):
