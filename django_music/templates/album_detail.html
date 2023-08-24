@@ -41,12 +41,6 @@
                 <a href="{% url 'album_detail' other_album.pk %}" class="otherAlbums">
                     <div class="otherAlbumText">{{ other_album.title }}</div>
                 </a>
-                <div class="albumActions">
-                    <button id="favoriteButton" data-album-id="{{ album.id }}" class="favorite-toggle">
-                        <img src="{% if album in request.user.favorites.all %}{% static 'icons/filled-heart.svg' %}{% else %}{% static 'icons/empty-heart.svg' %}{% endif %}"
-                            alt="favorite-toggle img">
-                    </button>
-                </div>
                 {% endfor %}
             </div>
         </div>

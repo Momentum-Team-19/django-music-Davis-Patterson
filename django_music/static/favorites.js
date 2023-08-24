@@ -1,12 +1,16 @@
 $(document).ready(function () {
-    $('#favoriteButton').click(function () {
+    $('.favorite-toggle').click(function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
         const albumId = $(this).data('album-id');
+        const button = $(this); 
 
         $.post(`/toggle_favorite/${albumId}/`, function (data) {
             if (data.is_favorite) {
-                $('#favoriteButton').addClass('favorited').text('Remove from Favorites');
+                button.addClass('favorited').text('Remove from Favorites');
             } else {
-                $('#favoriteButton').removeClass('favorited').text('Add to Favorites');
+                button.removeClass('favorited').text('Add to Favorites');
             }
         });
     });
