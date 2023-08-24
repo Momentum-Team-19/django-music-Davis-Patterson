@@ -138,6 +138,12 @@ header {
     background: transparent;
     border: none;
     cursor: pointer;
+    opacity: .2;
+    transition: opacity 0.2s;
+}
+
+.favorite-toggle:hover {
+    opacity: 1;
 }
 
 .favorite-toggle img {
@@ -155,6 +161,8 @@ header {
     padding: 2%;
     margin: 8px;
     text-decoration: none;
+    position: relative;
+    cursor: default;
 }
 
 .albumBox {
