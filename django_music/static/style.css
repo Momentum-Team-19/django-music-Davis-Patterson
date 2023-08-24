@@ -206,6 +206,21 @@ header {
     text-overflow: ellipsis;
 }
 
+.favorite-toggle {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.favorite-toggle img {
+    width: 24px;
+    height: 24px;
+}
+
 .albumCreated {
     font-family: "Arial", sans-serif;
     font-size: 12px;

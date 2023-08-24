@@ -29,7 +29,10 @@ urlpatterns = [
     path('albums/<int:album_id>', views.album_detail, name='album_detail'),
     path('albums/<int:pk>/edit', views.edit_album, name='edit_album'),
     path('albums/<int:pk>/delete', views.delete_album, name='delete_album'),
+    path('toggle_favorite/<int:album_id>/',
+         views.toggle_favorite, name='toggle_favorite'),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.STATIC_URL,
+                          document_root=settings.STATIC_ROOT)

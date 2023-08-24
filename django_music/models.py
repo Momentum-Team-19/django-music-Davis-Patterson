@@ -12,7 +12,8 @@ class Artist(models.Model):
 
 
 class Album(models.Model):
-    artist = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name="albums")
+    artist = models.ForeignKey(
+        Artist, on_delete=models.CASCADE, related_name="albums")
     title = models.CharField(max_length=200)
     created_date = models.DateTimeField(default=timezone.now)
 
@@ -25,4 +26,4 @@ class Album(models.Model):
 
 
 class User(AbstractUser):
-    pass
+    favorites = models.ManyToManyField('Album')

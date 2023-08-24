@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Album
 from .forms import AlbumForm
+from django_music.models import User
 
 
 def homepage(request):
@@ -26,15 +27,16 @@ def create_album(request):
 
 def album_detail(request, album_id):
     album = get_object_or_404(Album, pk=album_id)
-    
+
     # Get other albums by the same artist, excluding the current album
-    other_albums = Album.objects.filter(artist=album.artist).exclude(pk=album.pk)
-    
+    other_albums = Album.objects.filter(
+        artist=album.artist).exclude(pk=album.pk)
+
     context = {
         'album': album,
         'other_albums': other_albums,
     }
-    
+
     return render(request, 'album_detail.html', context)
 
 
@@ -59,3 +61,18 @@ def delete_album(request, pk):
         album.delete()
         return redirect('album_list')
     return render(request, 'album_confirm_delete.html', {'album': album})
+
+
+def toggle_favorite(request, album_id):
+    album = get_object_or_404(Album, pk=album_id)
+
+    default_user, created = User.objects.get_or_create(username='default_user')
+
+    if album in default_user.favorites.all():
+        default_user.favorites.remove(album)
+        is_favorite = False
+    else:
+        default_user.favorites.add(album)
+        is_favorite = True
+
+    return redirect('album_list')
