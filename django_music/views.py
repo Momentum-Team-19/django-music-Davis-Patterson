@@ -3,6 +3,7 @@ from django.utils import timezone
 from .models import Album
 from .forms import AlbumForm
 from django_music.models import User
+from django.http import JsonResponse
 
 
 def homepage(request):
@@ -64,15 +65,17 @@ def delete_album(request, pk):
 
 
 def toggle_favorite(request, album_id):
-    album = get_object_or_404(Album, pk=album_id)
+    if request.user.is_authenticated:
+        album = get_object_or_404(Album, pk=album_id)
+        user = request.user
 
-    default_user, created = User.objects.get_or_create(username='default_user')
+        if album in user.favorites.all():
+            user.favorites.remove(album)
+            is_favorite = False
+        else:
+            user.favorites.add(album)
+            is_favorite = True
 
-    if album in default_user.favorites.all():
-        default_user.favorites.remove(album)
-        is_favorite = False
-    else:
-        default_user.favorites.add(album)
-        is_favorite = True
+        return JsonResponse({'is_favorite': is_favorite})
 
-    return redirect('album_list')
+    return JsonResponse({'error': 'Authentication required'})
