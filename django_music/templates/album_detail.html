@@ -1,20 +1,31 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>Album Detail</title>
 </head>
 
 <body>
-    <h1>Album Detial</h1>
-    <h2>{{ album.title }}</h2>
-    <p>Artist: {{ album.artist }}</p>
-    <p>Created At: {{ album.created_at }}</p>
-    <a href="{% url 'edit_album' album.pk %}">Edit Album</a>
-    <a href="{% url 'delete_album' album.pk %}">Delete Album</a>
-    <a href="{% url 'album_list' %}">Back To Album List</a>
+    <header>
+        <h1 class="pageName">Album Detail</h1>
+    </header>
+    <div class="container">
+        <div class="albumDetail">
+            <h2 class="albumTitle">{{ album.title }}</h2>
+            <p class="albumArtist">Artist: {{ album.artist }}</p>
+            <p class="albumCreated">Created At: {{ album.created_at }}</p>
+        </div>
+    </div>
+    <div class="footerOptions">
+        <a class="footerOption" href="{% url 'edit_album' album.pk %}">Edit Album</a>
+        <a class="footerOption" href="{% url 'delete_album' album.pk %}">Delete Album</a>
+        <a class="footerOption" href="{% url 'album_list' %}">Back To Album List</a>
+        <a class="footerOption" href="{% url 'homepage' %}">Back to Home</a>
+    </div>
 </body>
 
 </html>

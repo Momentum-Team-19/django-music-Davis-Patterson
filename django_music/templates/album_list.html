@@ -10,8 +10,11 @@
 </head>
 
 <body>
-    <h1>Album List</h1>
-    <div class="albumList">
+    <header>
+        <h1 class="pageName">Album List</h1>
+    </header>
+
+    <div class="container">
         {% for album in albums %}
         <a href="{% url 'album_detail' album.pk %}" class="albumBox">
             <div class="detailBox">
@@ -21,8 +24,10 @@
         </a>
         {% endfor %}
     </div>
-    <a href="{% url 'create_album' %}">Create New Album</a>
-
+    <div class="footerOptions">
+        <a class="footerOption" href="{% url 'create_album' %}">Create New Album</a>
+        <a class="footerOption" href="{% url 'homepage' %}">Back to Home</a>
+    </div>
 </body>
 
 </html>

@@ -4,6 +4,10 @@ from .models import Album
 from .forms import AlbumForm
 
 
+def homepage(request):
+    return render(request, 'base.html')
+
+
 def album_list(request):
     albums = Album.objects.all()
     return render(request, 'album_list.html', {'albums': albums})

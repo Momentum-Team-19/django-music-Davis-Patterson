@@ -2,33 +2,59 @@
 
 :root {
     --clr-light: #f6f6f6;
-    --clr-dark: #0A1045;
+    --clr-dark: #333333;
     --clr-primary: #ccc;
     --clr-secondary: #7d7d7d;
     --clr-accent: #009FFD;
+    --clr-accent-dark: #0A1045;
     --clr-test: #FF0000;
 
     --foreground: var(--clr-light);
     --background: var(--clr-dark);
 }
 
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
 body {
     background-color: var(--clr-light);
 }
 
-h1 {
+header {
+    padding: 30px;
+    background-color: var(--clr-primary);
     color: var(--clr-dark);
+    font-size: 30;
+    border-bottom: 1px solid var(--clr-light);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
 }
 
-.albumList {
+.pageName {
+    font-family: "Arial", sans-serif;
+    color: var(--clr-dark);
+    font-size: 200;
+}
+
+.container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 20px;
 }
 
-.albumBox {
-    border: 20 px lightgrey;
+.containerColumn {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.homeOption {
     box-shadow: 1px 1px 3px #00000020, -1px -1px 3px #ffffff;
     background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
     display: column;
@@ -37,6 +63,45 @@ h1 {
     border-radius: 5%;
     padding: 2%;
     margin: 8px;
+    text-decoration: none;
+    width: 25%;
+}
+
+.homeOption:hover {
+    background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.3));
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.homeOption:active {
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2),
+        inset -2px -2px 4px #fff;
+    background-color: #f9f9f9;
+    transform: translateY(1px);
+    transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
+}
+
+.homeOptionText {
+    font-family: "Arial", sans-serif;
+    font-size: 18px;
+    color: var(--clr-dark);
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.albumBox {
+    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px #ffffff;
+    background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
+    display: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5%;
+    padding: 2%;
+    margin: 8px;
+    text-decoration: none;
 }
 
 .albumBox {
@@ -67,6 +132,21 @@ h1 {
     }
 }
 
+.albumBox:hover {
+    background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.3));
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.albumBox:active {
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2),
+        inset -2px -2px 4px #fff;
+    background-color: #f9f9f9;
+    transform: translateY(1px);
+    transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
+}
+
 .albumTitle {
     font-family: "Arial", sans-serif;
     font-size: 18px;
@@ -86,4 +166,100 @@ h1 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.albumCreated {
+    font-family: "Arial", sans-serif;
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.albumDetail {
+    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px #ffffff;
+    background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
+    display: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5%;
+    padding: 2%;
+    margin: 8px;
+    width: 40%;
+}
+
+.albumEdit {
+    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px #ffffff;
+    background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5%;
+    padding: 2%;
+    margin: 8px;
+    width: 30%;
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    color: var(--clr-dark);
+}
+
+.formText {
+    padding: 100;
+}
+
+.saveButton {
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.deleteText {
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--clr-dark);
+    width: 99%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.deleteText2 {
+    font-family: "Arial", sans-serif;
+    font-size: 14px;
+    color: var(--clr-dark);
+    width: 99%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 5px;
+}
+
+.deleteConfirm {
+    padding-top: 10px;
+}
+
+.confirmButton {
+    cursor: pointer;
+}
+
+.footerOptions {
+    border-top: 1px solid var(--clr-primary);
+    padding: 10px;
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    color: #666;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+}
+
+.footerOption {
+    text-decoration: none;
+    padding: 5px;
 }

@@ -21,7 +21,8 @@ from django_music import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("__debug__/", include("debug_toolbar.urls")),
-    path('', views.album_list, name='album_list'),
+    path('', views.homepage, name='homepage'),
+    path('album_list', views.album_list, name='album_list'),
     path('albums/new', views.create_album, name='create_album'),
     path('albums/<int:pk>', views.album_detail, name='album_detail'),
     path('albums/<int:pk>/edit', views.edit_album, name='edit_album'),

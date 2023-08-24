@@ -1,20 +1,31 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>Delete Album</title>
 </head>
 
 <body>
-    <h1>Delete Album</h1>
-    <p>Are you sure you want to delete this album? "{{ album.title }}" by "{{ album.artist}}"?</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Confirm Delete</button>
-    </form>
-    <a href="{% url 'album_detail' album.pk %}">Cancel</a>
+    <header>
+        <h1 class="pageName">Delete Album</h1>
+    </header>
+    <div class="container">
+        <div class="albumEdit">
+            <p class="deleteText">Delete this album?</p>
+            <p class="deleteText2">"{{ album.title }}" by "{{ album.artist}}"</p>
+            <form class="deleteConfirm" method="post">
+                {% csrf_token %}
+                <button class="confirmButton" type="submit">Confirm</button>
+            </form>
+        </div>
+    </div>
+    <div class="footerOptions">
+        <a class="footerOption" href="{% url 'album_detail' album.pk %}">Cancel</a>
+    </div>
 </body>
 
 </html>

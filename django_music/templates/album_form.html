@@ -1,20 +1,29 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-g">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>{% if form.instance.pk %}Edit Album{% else %}Create Album{% endif %}</title>
 </head>
 
 <body>
-    <h1>{% if form.instance.pk %}Edit Album{% else %}Create Album{% endif %}</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">SAVE</button>
-    </form>
-    <a href="{% url 'album_list' %}">Back to Album Lists</a>
+    <header>
+        <h1 class="pageName">{% if form.instance.pk %}Edit Album{% else %}Create Album{% endif %}</h1>
+    </header>
+    <div class="container">
+        <form class="albumEdit" method="post">
+            {% csrf_token %}
+            <p class="formText">{{ form.as_p }}</p>
+            <button class="saveButton" type="submit">SAVE</button>
+        </form>
+    </div>
+    <div class="footerOptions">
+        <a class="footerOption" href="{% url 'album_list' %}">Back to Album List</a>
+        <a class="footerOption" href="{% url 'homepage' %}">Back to Home</a>
+    </div>
 </body>
 
 </html>
