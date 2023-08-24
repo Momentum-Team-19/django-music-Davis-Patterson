@@ -143,7 +143,13 @@ header {
 }
 
 .albumBox {
-    width: 26%;
+    width: 19%;
+}
+
+@media (max-width: 1400px) {
+    .albumBox {
+        width: 22%;
+    }
 }
 
 @media (max-width: 1200px) {
