@@ -143,18 +143,24 @@ header {
 }
 
 .albumBox {
-    width: 15%;
+    width: 16%;
 }
 
 @media (max-width: 1400px) {
     .albumBox {
-        width: 20%;
+        width: 19%;
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
     .albumBox {
-        width: 30%;
+        width: 26%;
+    }
+}
+
+@media (max-width: 850px) {
+    .albumBox {
+        width: 34%;
     }
 }
 
@@ -302,33 +308,27 @@ header {
     width: 16%;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
     .otherAlbums {
         width: 20%;
     }
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1000px) {
     .otherAlbums {
         width: 30%;
     }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
     .otherAlbums {
         width: 40%;
     }
 }
 
-@media (max-width: 768px) {
-    .otherAlbums {
-        width: 50%;
-    }
-}
-
 @media (max-width: 576px) {
-    .albotherAlbumsumBox {
-        width: 60%;
+    .otherAlbums {
+        width: 80%;
     }
 }
 
