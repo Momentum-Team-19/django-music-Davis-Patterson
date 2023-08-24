@@ -130,6 +130,21 @@ header {
     text-overflow: ellipsis;
 }
 
+.favorite-toggle {
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    z-index: 2;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.favorite-toggle img {
+    width: 18px;
+    height: 18px;
+}
+
 .albumBox {
     box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-light);
     background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
@@ -204,21 +219,6 @@ header {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.favorite-toggle {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 2;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-}
-
-.favorite-toggle img {
-    width: 24px;
-    height: 24px;
 }
 
 .albumCreated {
