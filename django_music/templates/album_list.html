@@ -36,6 +36,9 @@
             <div class="detailBox">
                 <h2 class="albumTitle">{{ album.title }}</h2>
                 <p class="albumArtist">{{ album.artist }}</p>
+                {% if album.album_art %}
+                <img src="{{ album.album_art.url }}" alt="{{ album.title }} Album Art" class="albumArtImage">
+                {% endif %}
             </div>
         </a>
         {% endfor %}

@@ -7,7 +7,7 @@ from django.http import JsonResponse
 
 
 def homepage(request):
-    return render(request, 'base.html')
+    return render(request, 'index.html')
 
 
 def album_list(request):
@@ -17,7 +17,7 @@ def album_list(request):
 
 def create_album(request):
     if request.method == 'POST':
-        form = AlbumForm(request.POST)
+        form = AlbumForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('album_list')

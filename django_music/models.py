@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import AbstractUser
+import datetime
+import os
 
 
 class Artist(models.Model):
@@ -13,11 +15,13 @@ class Artist(models.Model):
 
 class Album(models.Model):
     artist = models.ForeignKey(
-        Artist, on_delete=models.CASCADE, related_name="albums")
+        Artist, on_delete=models.CASCADE, related_name="albums", default="default")
     title = models.CharField(max_length=200)
     created_date = models.DateTimeField(default=timezone.now)
     album_art = models.ImageField(
-        upload_to='static/album_art/', blank=True, null=True)
+        upload_to='media/',
+        default='/Users/davis/Momentum/Phase2/django-music-Davis-Patterson/django_music/static/album_art/unavailable.jpg'
+    )
 
     def archive(self):
         self.created_date = timezone.now()
