@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from .models import Album, Favorite
+from .models import Album
 from .forms import AlbumForm
 from django_music.models import User
 from django.http import JsonResponse
@@ -64,20 +64,17 @@ def delete_album(request, pk):
     return render(request, 'album_confirm_delete.html', {'album': album})
 
 
-def toggle_favorite(request, album_id):
+def toggle_favorite(request, pk, album_id):
+    album = get_object_or_404(User, pk)
     album = get_object_or_404(Album, pk=album_id)
-    user = request.user
 
-    # If the album is already in the user's favorites, toggle it
-    if album in user.favorites.all():
-        # user.favorites represents a related manager for the Favorite model
-        # allows you to access the Favorite objects related to a specific user
-        favorite = user.favorites.get(album=album)
-        # toggle favorite on/off
-        favorite.is_favorite = not favorite.is_favorite
-        favorite.save()
+    if request.method == 'POST':
+        form = AlbumForm(request.POST, instance=album)
+        if form.is_valid():
+            form.save()
+            return redirect('album_list')
+
     else:
-        favorite = Favorite(user=user, album=album, is_favorite=True)
-        favorite.save()
+        form = AlbumForm(instance=album)
 
-    return redirect('album_detail', pk=album_id)
+    return render(request, 'album_form.html', {'form': form})

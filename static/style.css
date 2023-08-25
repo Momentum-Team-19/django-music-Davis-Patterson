@@ -208,6 +208,11 @@ header {
     transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
 }
 
+.albumArtImage {
+    /* display: none; */
+    width: 80%;
+}
+
 .albumTitle {
     font-family: "Arial", sans-serif;
     font-size: 18px;

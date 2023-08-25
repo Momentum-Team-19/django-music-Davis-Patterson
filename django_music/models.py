@@ -20,7 +20,7 @@ class Album(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     album_art = models.ImageField(
         upload_to='media/',
-        default='/Users/davis/Momentum/Phase2/django-music-Davis-Patterson/django_music/static/album_art/unavailable.jpg'
+        default='media/unavailable.jpg'
     )
 
     def archive(self):
@@ -32,13 +32,12 @@ class Album(models.Model):
 
 
 class User(AbstractUser):
-    # favorites = models.ManyToManyField('Album')
-    pass
+    favorites = models.ManyToManyField('Album')
 
 
-class Favorite(models.Model):
-    user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="favorites")
-    album = models.ForeignKey(
-        Album, on_delete=models.CASCADE, related_name="favorite_albums")
-    is_favorite = models.BooleanField(default=False)
+# class Favorite(models.Model):
+#     user = models.ForeignKey(
+#         User, on_delete=models.CASCADE, related_name="favorites")
+#     album = models.ForeignKey(
+#         Album, on_delete=models.CASCADE, related_name="favorite_albums")
+#     is_favorite = models.BooleanField(default=False)

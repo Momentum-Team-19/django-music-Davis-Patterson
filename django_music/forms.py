@@ -1,5 +1,5 @@
 from django import forms
-from .models import Album, Favorite
+from .models import Album
 
 
 class AlbumForm(forms.ModelForm):
