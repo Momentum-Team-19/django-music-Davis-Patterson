@@ -17,7 +17,7 @@ class Album(models.Model):
     title = models.CharField(max_length=200)
     created_date = models.DateTimeField(default=timezone.now)
     album_art = models.ImageField(
-        upload_to='album_covers/', blank=True, null=True)
+        upload_to='static/album_art/', blank=True, null=True)
 
     def archive(self):
         self.created_date = timezone.now()

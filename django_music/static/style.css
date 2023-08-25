@@ -5,7 +5,7 @@
     --clr-dark: #333333;
     --clr-primary: #ccc;
     --clr-secondary: #7d7d7d;
-    --clr-accent: #009FFD;
+    --clr-accent: #007bff;
     --clr-accent-dark: #0A1045;
     --clr-test: #FF0000;
 
@@ -18,7 +18,7 @@
     --clr-dark: #353941;
     --clr-primary: #90959a;
     --clr-secondary: #26282b;
-    --clr-accent: #3b50d2;
+    --clr-accent: #0157b4;
     --clr-accent-dark: #040825;
     --clr-test: #813131;
 
@@ -382,12 +382,65 @@ header {
 }
 
 .formText {
-    padding: 100;
+    font-family: "Arial", sans-serif;
+    font-size: 14px;
+}
+
+.formTitle {
+    font-family: "Arial", sans-serif;
+    font-size: 14px;
+}
+
+.formArtist {
+    font-family: "Arial", sans-serif;
+    font-size: 14px;
+}
+
+.formImage {
+    /* border: 1px solid green; */
 }
 
 .saveButton {
+    height: 40px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--clr-accent);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
     cursor: pointer;
+    margin-top: 20px;
+}
+
+.saveButton:hover {
+    background-color: #0056b3;
+}
+
+.saveButton:active {
+    animation: clickEffect 0.3s ease;
+}
+
+.imgInputContainer {
+    display: flex;
+    align-content: center;
     margin-top: 10px;
+}
+
+.imgLabel {
+    justify-content: center;
+    padding-top: 15px;
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.imgUpload {
+    flex-direction: column;
+    font-family: "Arial", sans-serif;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
 }
 
 .deleteText {

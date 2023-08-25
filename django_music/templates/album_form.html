@@ -22,7 +22,22 @@
     <div class="container">
         <form class="albumEdit" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <p class="formText">{{ form.as_p }}</p>
+            <p class="formText">
+                <label for="{{ form.title.id }}" class="formTitle">Title</label>
+                {{ form.title }}
+            </p>
+            <p class="formText">
+                <label for="{{ form.artist.id }}" class="formArtist">Artist</label>
+                {{ form.artist }}
+            </p>
+            <div class="imgInputContainer">
+                <label for="{{ form.album_art.id }}" class="imgLabel">Upload Album Art</label>
+            </div>
+            <div class="imgInputContainer">
+                <div class="file-input-wrapper">
+                    <input type="file" name="{{ form.album_art.name }}" id="{{ form.album_art.id }}" class="imgUpload">
+                </div>
+            </div>
             <button class="saveButton" type="submit">SAVE</button>
         </form>
     </div>
