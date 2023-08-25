@@ -65,17 +65,12 @@ def delete_album(request, pk):
 
 
 def toggle_favorite(request, album_id):
-    if request.user.is_authenticated:
-        album = get_object_or_404(Album, pk=album_id)
-        user = request.user
 
-        if album in user.favorites.all():
-            user.favorites.remove(album)
-            is_favorite = False
-        else:
-            user.favorites.add(album)
-            is_favorite = True
+    album = get_object_or_404(Album, pk=album_id)
+    user = request.user
 
-        return JsonResponse({'is_favorite': is_favorite})
-
-    return JsonResponse({'error': 'Authentication required'})
+    if album in user.favorites.all():
+        is_favorite = False
+    else:
+        user.favorites.add(album)
+        is_favorite = True

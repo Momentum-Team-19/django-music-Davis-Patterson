@@ -26,4 +26,13 @@ class Album(models.Model):
 
 
 class User(AbstractUser):
-    favorites = models.ManyToManyField('Album')
+    # favorites = models.ManyToManyField('Album')
+    pass
+
+
+class Favorite(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="favorites")
+    album = models.ForeignKey(
+        Album, on_delete=models.CASCADE, related_name="favorite_albums")
+    is_favorite = models.BooleanField(default=False)
