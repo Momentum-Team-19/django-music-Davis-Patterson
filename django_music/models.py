@@ -16,6 +16,8 @@ class Album(models.Model):
         Artist, on_delete=models.CASCADE, related_name="albums")
     title = models.CharField(max_length=200)
     created_date = models.DateTimeField(default=timezone.now)
+    album_art = models.ImageField(
+        upload_to='album_covers/', blank=True, null=True)
 
     def archive(self):
         self.created_date = timezone.now()

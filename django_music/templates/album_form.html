@@ -20,7 +20,7 @@
     </button>
 
     <div class="container">
-        <form class="albumEdit" method="post">
+        <form class="albumEdit" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <p class="formText">{{ form.as_p }}</p>
             <button class="saveButton" type="submit">SAVE</button>
