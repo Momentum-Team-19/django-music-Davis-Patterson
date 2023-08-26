@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Assistant:400,700|Playfair+Display:900");
 
 :root {
-    --clr-header: #807c7c;
+    --clr-header: #747378;
     --clr-body: #f6f6f6;
     --clr-pagename: #f6f6f6;
     --clr-lightest: #f6f6f6;
@@ -15,6 +15,7 @@
     --clr-text3: #858484;
     --clr-text4: #9f9f9f;
 
+    --clr-break: #cccccc;
     --clr-accent: #007bff;
     --clr-accent-dark: #0A1045;
     --clr-test: #FF0000;
@@ -38,6 +39,7 @@
     --clr-text3: #929191;
     --clr-text4: #7c7b7b;
 
+    --clr-break: #4f5b67;
     --clr-accent: #0157b4;
     --clr-accent-dark: #040825;
     --clr-test: #813131;
@@ -91,6 +93,7 @@ header {
     width: 30px;
     height: 30px;
     opacity: .6;
+    cursor: pointer;
 }
 
 .dark-mode-toggle:hover {
@@ -263,6 +266,27 @@ header {
     transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
 }
 
+.darkMode .albumBox {
+    border: 1px solid #363e4a;
+    box-shadow: 3px 3px 5px rgba(147, 154, 162, .1),
+        -3px -3px 5px rgba(58, 63, 72, .5);
+    background: linear-gradient(140deg, rgba(80, 88, 100, 1), rgba(38, 40, 43, 0.1));
+}
+
+.darkMode .albumBox:hover {
+    background: linear-gradient(140deg, rgba(66, 85, 113, 0.8), rgba(32, 54, 86, 0.8));
+    box-shadow: 0 2px 4px rgba(120, 119, 119, 0.2), 0 4px 8px rgba(150, 150, 150, 0.2);
+    transform: translateY(-2px);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.darkMode .albumBox:active {
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.1), inset -2px -2px 4px rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(1px);
+    transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
+}
+
 .albumArtBox {
     display: flex;
     justify-content: center;
@@ -277,6 +301,11 @@ header {
     border-radius: 8%;
     box-shadow: 3px 3px 5px #00000020,
         -1px -1px 3px #ffffff;
+}
+
+.darkMode .albumArtImage {
+    box-shadow: 3px 3px 5px rgba(147, 154, 162, .1),
+        -3px -3px 5px rgba(89, 97, 111, 0.5);
 }
 
 .albumTitle {
@@ -337,6 +366,7 @@ header {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
+    margin-top: 18px;
 }
 
 .intermediateContainer {
@@ -350,10 +380,16 @@ header {
     align-items: center;
     border: 1px solid var(--clr-lighter);
     box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-lightest);
-    background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
+    background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(37, 32, 57, 0.1));
     border-radius: 5%;
     padding: 2%;
-    min-width: ;
+}
+
+.darkMode .currentAlbumContainer {
+    border: 1px solid #363e4a;
+    box-shadow: 3px 3px 5px rgba(147, 154, 162, .1),
+        -3px -3px 5px rgba(58, 63, 72, .5);
+    background: linear-gradient(140deg, rgba(80, 88, 100, 1), rgba(38, 40, 43, 0.1));
 }
 
 .detailArtBox {
@@ -371,6 +407,11 @@ header {
     margin-right: 10px;
     box-shadow: 3px 3px 5px #00000020,
         -1px -1px 3px #ffffff;
+}
+
+.darkMode .detailArtImage {
+    box-shadow: 3px 3px 5px rgba(147, 154, 162, .1),
+        -3px -3px 5px rgba(92, 104, 126, 0.5);
 }
 
 .detailArtImage {
@@ -465,6 +506,7 @@ header {
     padding: 10px;
     margin: 2px;
     text-decoration: none;
+    opacity: .4;
     /* background-color: var(--clr-primary); */
     /* border: 1px solid var(--clr-lighter); */
 }
@@ -481,6 +523,28 @@ header {
 .nextAlbum img {
     width: 20px;
     height: 20px;
+}
+
+.prevAlbum:hover {
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+.prevAlbum:active {
+    opacity: 1;
+    transform: scale(.9);
+    transition: transform 0.1s;
+}
+
+.nextAlbum:hover {
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+.nextAlbum:active {
+    opacity: 1;
+    transform: scale(.9);
+    transition: transform 0.1s;
 }
 
 .LtGtImage {
@@ -526,8 +590,8 @@ header {
     flex-direction: column;
     margin-bottom: 20px;
     width: 100%;
-    border-top: 1px solid var(--clr-primary);
-    padding-top: 10px;
+    border-top: 1px solid var(--clr-break);
+    padding-top: 15px;
 }
 
 .otherContainer {
@@ -626,15 +690,44 @@ header {
     transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
 }
 
+.darkMode .otherAlbums {
+    border: 1px solid #363e4a;
+    box-shadow: 1px 1px 3px rgba(147, 154, 162, .1),
+        -1px -1px 3px rgba(58, 63, 72, .5);
+    background: linear-gradient(140deg, rgba(80, 88, 100, 1), rgba(38, 40, 43, 0.1));
+}
+
+.darkMode .otherAlbums:hover {
+    background: linear-gradient(140deg, rgba(66, 85, 113, 0.8), rgba(32, 54, 86, 0.8));
+    box-shadow: 0 1px 2px rgba(120, 119, 119, 0.2), 0 2px 4px rgba(150, 150, 150, 0.2);
+    transform: translateY(-2px);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.darkMode .otherAlbums:active {
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.1), inset -2px -2px 4px rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(1px);
+    transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
+}
+
 .otherAlbumText {
     font-family: "Arial", sans-serif;
-    font-size: 14px;
-    /* font-weight: bold; */
+    font-size: 12px;
+    font-weight: bold;
     color: var(--clr-text1);
     text-align: center;
-    white-space: nowrap;
+    white-space: normal;
+    /* Change from nowrap to normal */
     overflow: hidden;
-    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* Number of lines to show */
+    -webkit-box-orient: vertical;
+    line-height: 1.2;
+    /* Adjust line height as needed */
+    max-height: 2.4em;
+    /* 2 lines * line height */
     margin-top: 10px;
 }
 
@@ -649,6 +742,11 @@ header {
     box-shadow: 3px 3px 5px #00000020,
         -1px -1px 3px #ffffff;
     border-radius: 10%;
+}
+
+.darkMode .otherAlbumArt {
+    box-shadow: 3px 3px 5px rgba(147, 154, 162, .1),
+        -1px -1px 3px rgba(89, 97, 111, 0.5);
 }
 
 .albumEdit {
@@ -773,7 +871,7 @@ header {
 }
 
 .footerOptions {
-    border-top: 1px solid var(--clr-primary);
+    border-top: 1px solid var(--clr-break);
     padding: 10px;
     font-family: "Arial", sans-serif;
     font-size: 16px;

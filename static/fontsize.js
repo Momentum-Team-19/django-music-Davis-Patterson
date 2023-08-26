@@ -5,12 +5,14 @@ textContainers.forEach((textContainer) => {
 
     let fontSize;
 
-    if (textLength > 250) {
+    if (textLength > 500) {
         fontSize = '10px';
-    } else if (textLength > 100) {
-        fontSize = '12px';
+    } else if (textLength > 300) {
+        fontSize = '11px';
+    } else if (textLength > 50) {
+        fontSize = '12px'
     } else {
-        fontSize = '14px'
+        fontSize = '14'
     }
 
     textContainer.style.fontSize = fontSize;
