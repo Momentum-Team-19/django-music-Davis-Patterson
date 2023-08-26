@@ -25,8 +25,21 @@
         <img src="{% static 'icons/darkmode.svg' %}" alt="Dark Mode Icon">
     </button>
 
+    <!-- Previous Album -->
+    <a class="prevAlbum" href="{% if prev_album %}{% url 'album_detail' prev_album.pk %}{% endif %}">
+        <h1 class="LtGtImage{% if not has_prev_album %}Disabled{% endif %}">&lt;</h1>
+    </a>
+
     <div class="detailContainer">
         <div class="intermediateContainer">
+            <button class="detail-favorite-toggle" data-album-id="{{ album.id }}">
+                {% if album in request.user.favorites.all %}
+                <!-- Add a class if the album is in the user's favorites -->
+                <img src="{% static 'icons/filled-heart.svg' %}" alt="Favorite">
+                {% else %}
+                <img src="{% static 'icons/empty-heart.svg' %}" alt="Not Favorite">
+                {% endif %}
+            </button>
             <div class="currentAlbumContainer">
                 <div class="detailArtBox">
                     <img src="{{ album.album_art.url }}" alt="{{ album.title }} Album Art" class="detailArtImage">
@@ -42,6 +55,11 @@
         </div>
     </div>
 
+    <!-- Next Album -->
+    <a class="nextAlbum" href="{% if next_album %}{% url 'album_detail' next_album.pk %}{% endif %}">
+        <h1 class="LtGtImage{% if not has_next_album %}Disabled{% endif %}">&gt;</h1>
+    </a>
+
     <div class="otherAlbumContainer">
         <div class="otherContainerColumn">
             <div class="otherTitleBox">
@@ -51,7 +69,7 @@
             <div class="otherContainer">
                 {% for other_album in other_albums %}
                 <a href="{% url 'album_detail' other_album.pk %}" class="otherAlbums">
-                    <button class="favorite-toggle" data-album-id="{{ album.id }}">
+                    <button class="other-favorite-toggle" data-album-id="{{ other_album.id }}">
                         {% if album in request.user.favorites.all %}
                         <!-- Add a class if the album is in the user's favorites -->
                         <img src="{% static 'icons/filled-heart.svg' %}" alt="Favorite">

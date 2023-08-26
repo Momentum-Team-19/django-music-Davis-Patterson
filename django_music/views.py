@@ -30,13 +30,23 @@ def create_album(request):
 def album_detail(request, album_id):
     album = get_object_or_404(Album, pk=album_id)
 
+    prev_album = Album.objects.filter(pk__lt=album_id).order_by('-pk').first()
+    next_album = Album.objects.filter(pk__gt=album_id).order_by('pk').first()
+
+    has_prev_album = prev_album is not None
+    has_next_album = next_album is not None
+
     # Get other albums by the same artist, excluding the current album
     other_albums = Album.objects.filter(
         artist=album.artist).exclude(pk=album.pk)
 
     context = {
         'album': album,
+        'prev_album': prev_album,
+        'next_album': next_album,
         'other_albums': other_albums,
+        'has_prev_album': has_prev_album,
+        'has_next_album': has_next_album,
     }
 
     return render(request, 'album_detail.html', context)

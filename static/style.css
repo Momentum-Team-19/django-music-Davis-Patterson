@@ -80,6 +80,12 @@ header {
     height: 30px;
 }
 
+.dark-mode-toggle:active {
+    opacity: 1;
+    transform: translateY(1px);
+    transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
+}
+
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -163,6 +169,12 @@ header {
 
 .favorite-toggle:hover {
     opacity: 1;
+}
+
+.favorite-toggle:active {
+    opacity: 1;
+    transform: translateY(1px);
+    transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
 }
 
 .favorite-toggle img {
@@ -273,6 +285,37 @@ header {
     margin-top: 3px;
 }
 
+.detail-favorite-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 2;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: .4;
+    transition: opacity 0.2s;
+}
+
+.detail-favorite-toggle:hover {
+    opacity: 1;
+}
+
+.detail-favorite-toggle:hover {
+    opacity: 1;
+}
+
+.detail-favorite-toggle:active {
+    opacity: 1;
+    transform: translateY(1px);
+    transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
+}
+
+.detail-favorite-toggle img {
+    width: 28px;
+    height: 28px;
+}
+
 .detailContainer {
     display: flex;
     justify-content: center;
@@ -282,6 +325,7 @@ header {
 .intermediateContainer {
     justify-content: center;
     padding: 5px;
+    position: relative;
 }
 
 .currentAlbumContainer {
@@ -396,6 +440,69 @@ header {
     margin-bottom: 5px;
 }
 
+.prevAlbum,
+.nextAlbum {
+    position: absolute;
+    top: 24%;
+    transform: translateY(-50%);
+    padding: 10px;
+    margin: 2px;
+    text-decoration: none;
+    /* background-color: var(--clr-primary); */
+    /* border: 1px solid var(--clr-lighter); */
+}
+
+.prevAlbum {
+    left: 0;
+}
+
+.nextAlbum {
+    right: 0;
+}
+
+.prevAlbum img,
+.nextAlbum img {
+    width: 20px;
+    height: 20px;
+}
+
+.LtGtImage {
+    background-color: none;
+    color: var(--clr-primary);
+}
+
+.LtGtImageDisabled {
+    display: none;
+}
+
+.other-favorite-toggle {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    z-index: 2;
+    color: var(--clr-accent);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: .4;
+    transition: opacity 0.2s;
+}
+
+.other-favorite-toggle:hover {
+    opacity: 1;
+}
+
+.other-favorite-toggle:active {
+    opacity: 1;
+    transform: translateY(1px);
+    transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
+}
+
+.other-favorite-toggle img {
+    width: 16px;
+    height: 16px;
+}
+
 .otherContainerColumn {
     display: flex;
     align-items: center;
@@ -456,6 +563,7 @@ header {
     padding: 2%;
     margin: 8px;
     text-decoration: none;
+    position: relative;
 }
 
 .otherAlbums {
