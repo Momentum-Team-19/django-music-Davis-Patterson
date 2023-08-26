@@ -23,25 +23,27 @@
     </button>
 
     <div class="container">
-        {% for album in albums %}
-        <a href="{% url 'album_detail' album.pk %}" class="albumBox">
-            <button class="favorite-toggle" data-album-id="{{ album.id }}">
-                {% if album in request.user.favorites.all %}
-                <!-- Add a class if the album is in the user's favorites -->
-                <img src="{% static 'icons/filled-heart.svg' %}" alt="Favorite">
-                {% else %}
-                <img src="{% static 'icons/empty-heart.svg' %}" alt="Not Favorite">
-                {% endif %}
-            </button>
-            <div class="detailBox">
-                <h2 class="albumTitle">{{ album.title }}</h2>
-                <p class="albumArtist">{{ album.artist }}</p>
-                {% if album.album_art %}
-                <img src="{{ album.album_art.url }}" alt="{{ album.title }} Album Art" class="albumArtImage">
-                {% endif %}
-            </div>
-        </a>
-        {% endfor %}
+        <div class="container80">
+            {% for album in albums %}
+            <a href="{% url 'album_detail' album.pk %}" class="albumBox">
+                <button class="favorite-toggle" data-album-id="{{ album.id }}">
+                    {% if album in request.user.favorites.all %}
+                    <!-- Add a class if the album is in the user's favorites -->
+                    <img src="{% static 'icons/filled-heart.svg' %}" alt="Favorite">
+                    {% else %}
+                    <img src="{% static 'icons/empty-heart.svg' %}" alt="Not Favorite">
+                    {% endif %}
+                </button>
+                <div class="albumArtBox">
+                    <img src="{{ album.album_art.url }}" alt="{{ album.title }} Album Art" class="albumArtImage">
+                </div>
+                <div class="detailBox">
+                    <h2 class="albumTitle">{{ album.title }}</h2>
+                    <p class="albumArtist">{{ album.artist }}</p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
     </div>
 
     <div class="footerOptions">

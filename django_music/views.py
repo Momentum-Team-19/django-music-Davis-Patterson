@@ -6,6 +6,7 @@ from django_music.models import User
 from django.http import JsonResponse
 
 
+# @login_required
 def homepage(request):
     return render(request, 'index.html')
 
@@ -66,7 +67,9 @@ def delete_album(request, pk):
 
 def toggle_favorite(request, pk, album_id):
     album = get_object_or_404(User, pk)
-    album = get_object_or_404(Album, pk=album_id)
+    album = get_object_or_404(Album, pk)
+    # user = request.user()
+    user = User.objects.get(pk=1)
 
     if request.method == 'POST':
         form = AlbumForm(request.POST, instance=album)
