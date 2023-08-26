@@ -1,31 +1,49 @@
 @import url("https://fonts.googleapis.com/css?family=Assistant:400,700|Playfair+Display:900");
 
 :root {
-    --clr-light: #f6f6f6;
+    --clr-header: #807c7c;
+    --clr-body: #f6f6f6;
+    --clr-pagename: #f6f6f6;
+    --clr-lightest: #f6f6f6;
     --clr-lighter: #e5e5e5;
     --clr-dark: #333333;
     --clr-primary: #ccc;
     --clr-secondary: #7d7d7d;
+
+    --clr-text1: #333333;
+    --clr-text2: #666666;
+    --clr-text3: #858484;
+    --clr-text4: #9f9f9f;
+
     --clr-accent: #007bff;
     --clr-accent-dark: #0A1045;
     --clr-test: #FF0000;
 
-    --foreground: var(--clr-light);
+    --foreground: var(--clr-lightest);
     --background: var(--clr-dark);
 }
 
 .darkMode {
-    --clr-light: #606470;
+    --clr-header: #90959a;
+    --clr-body: #26282b;
+    --clr-pagename: #26282b;
+    --clr-lightest: #606470;
     --clr-lighter: #8a8a8e;
     --clr-dark: #353941;
     --clr-primary: #90959a;
     --clr-secondary: #26282b;
+
+    --clr-text1: #cdcccc;
+    --clr-text2: #b4b4b4;
+    --clr-text3: #929191;
+    --clr-text4: #7c7b7b;
+
     --clr-accent: #0157b4;
     --clr-accent-dark: #040825;
     --clr-test: #813131;
 
-    --foreground: var(--clr-light);
-    --background: var(--clr-dark);
+    --foreground: var(--clr-dark);
+    --background: var(--clr-lightest);
 }
 
 * {
@@ -35,33 +53,29 @@
 }
 
 body {
-    background-color: var(--clr-light);
-}
-
-.darkMode body {
-    background-color: var(--clr-primary);
+    background-color: var(--clr-body);
 }
 
 header {
     padding: 30px;
-    background-color: var(--clr-primary);
+    background-color: var(--clr-header);
     color: var(--clr-dark);
     font-size: 30;
-    border-bottom: 1px solid var(--clr-light);
+    border-bottom: 1px solid var(--clr-lightest);
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
 }
 
 .darkMode .header {
-    background-color: var(--clr-primary);
-    border-bottom: 1px solid var(--clr-light);
+    background-color: var(--clr-header);
+    border-bottom: 1px solid var(--clr-lightest);
     color: var(--clr-dark);
 }
 
 .pageName {
     font-family: "Arial", sans-serif;
-    color: var(--clr-dark);
+    color: var(--clr-pagename);
     font-size: 200;
 }
 
@@ -70,20 +84,23 @@ header {
     z-index: 100;
     top: 1em;
     left: 1em;
-    color: var(--foreground);
-    border: 2px solid currentColor;
+    border: 2px solid var(--clr-dark);
     padding: 4px;
     background: transparent;
-    cursor: default;
     border-radius: 5px;
     width: 30px;
     height: 30px;
+    opacity: .6;
+}
+
+.dark-mode-toggle:hover {
+    opacity: 1;
 }
 
 .dark-mode-toggle:active {
     opacity: 1;
     transform: translateY(1px);
-    transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
+    transition: opacity 0.1s, transform 0.1s;
 }
 
 .container {
@@ -118,7 +135,7 @@ header {
 }
 
 .homeOption {
-    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-light);
+    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-lightest);
     background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
     display: column;
     justify-content: center;
@@ -139,7 +156,7 @@ header {
 
 .homeOption:active {
     box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2),
-        inset -2px -2px 4px var(--clr-light);
+        inset -2px -2px 4px var(--clr-lightest);
     background-color: #f9f9f9;
     transform: translateY(1px);
     transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
@@ -148,7 +165,7 @@ header {
 .homeOptionText {
     font-family: "Arial", sans-serif;
     font-size: 18px;
-    color: var(--clr-dark);
+    color: var(--clr-text1);
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -183,7 +200,7 @@ header {
 }
 
 .albumBox {
-    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-light);
+    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-lightest);
     background: linear-gradient(140deg, rgba(40, 40, 40, 0.0), rgba(0, 0, 0, 0.1));
     border: 1px solid var(--clr-lighter);
     display: column;
@@ -240,7 +257,7 @@ header {
 
 .albumBox:active {
     box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2),
-        inset -2px -2px 4px var(--clr-light);
+        inset -2px -2px 4px var(--clr-lightest);
     background-color: #f9f9f9;
     transform: translateY(1px);
     transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
@@ -266,7 +283,7 @@ header {
     font-family: "Arial", sans-serif;
     font-size: 16px;
     font-weight: bold;
-    color: #333;
+    color: var(--clr-text1);
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -277,7 +294,7 @@ header {
 .albumArtist {
     font-family: "Arial", sans-serif;
     font-size: 14px;
-    color: #666;
+    color: var(--clr-text2);
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -332,7 +349,7 @@ header {
     display: flex;
     align-items: center;
     border: 1px solid var(--clr-lighter);
-    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-light);
+    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-lightest);
     background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
     border-radius: 5%;
     padding: 2%;
@@ -381,7 +398,7 @@ header {
     font-family: "Arial", sans-serif;
     font-size: 22px;
     font-weight: bold;
-    color: #333;
+    color: var(--clr-text1);
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -392,7 +409,7 @@ header {
 .albumDetailArtist {
     font-family: "Arial", sans-serif;
     font-size: 18px;
-    color: #666;
+    color: var(--clr-text2);
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -403,7 +420,7 @@ header {
 .albumReleased {
     font-family: "Trebuchet MS", sans-serif;
     font-size: 14px;
-    color: #666;
+    color: var(--clr-text2);
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -414,7 +431,7 @@ header {
 .albumBio {
     font-family: "Tahoma", sans-serif;
     font-size: 14px;
-    color: #858484;
+    color: var(--clr-text3);
     margin-top: 3px;
 }
 
@@ -431,7 +448,7 @@ header {
 .albumCreated {
     font-family: "Arial", sans-serif;
     font-size: 9px;
-    color: #9f9f9f;
+    color: var(--clr-text4);
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -521,7 +538,7 @@ header {
 }
 
 /* .otherTitleBox {
-    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-light);
+    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-lightest);
     background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
     border-radius: 5%;
     padding-top: 10px;
@@ -534,7 +551,7 @@ header {
     font-family: "Arial", sans-serif;
     font-size: 16px;
     font-weight: bold;
-    color: var(--clr-dark);
+    color: var(--clr-text1);
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -544,7 +561,7 @@ header {
 .otherTitle2 {
     font-family: "Arial", sans-serif;
     font-size: 15px;
-    color: var(--clr-dark);
+    color: var(--clr-text2);
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -553,7 +570,7 @@ header {
 }
 
 .otherAlbums {
-    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-light);
+    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-lightest);
     background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
     border: 1px solid var(--clr-lighter);
     display: column;
@@ -603,7 +620,7 @@ header {
 
 .otherAlbums:active {
     box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2),
-        inset -2px -2px 4px var(--clr-light);
+        inset -2px -2px 4px var(--clr-lightest);
     background-color: #f9f9f9;
     transform: translateY(1px);
     transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
@@ -613,7 +630,7 @@ header {
     font-family: "Arial", sans-serif;
     font-size: 14px;
     /* font-weight: bold; */
-    color: var(--clr-dark);
+    color: var(--clr-text1);
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -635,7 +652,7 @@ header {
 }
 
 .albumEdit {
-    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-light);
+    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-lightest);
     background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
     display: flex;
     flex-direction: column;
@@ -760,12 +777,12 @@ header {
     padding: 10px;
     font-family: "Arial", sans-serif;
     font-size: 16px;
-    color: #666;
+    text-decoration: none;
+    color: var(--clr-text2);
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    text-decoration: none;
     margin-bottom: 20px;
 }
 
