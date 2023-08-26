@@ -34,9 +34,8 @@
                 <div class="albumDetail">
                     <h2 class="albumDetailTitle">{{ album.title }}</h2>
                     <p class="albumDetailArtist">{{ album.artist }}</p>
-                    <p class="albumReleased">April 1976</p>
-                    <p class="albumBio">Reviewing for Rolling Stone in 1976, Robert Palmer said that Marley consummately
-                        performs "a </p>
+                    <p class="albumReleased">{{ album.released }}</p>
+                    <p class="albumBio">{{ album.bio }}</p>
                     <p class="albumCreated">Created At: {{ album.created_date }}</p>
                 </div>
             </div>

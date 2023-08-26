@@ -6,7 +6,7 @@ class AlbumForm(forms.ModelForm):
 
     class Meta:
         model = Album
-        fields = ('title', 'artist', 'album_art')
+        fields = ('title', 'artist', 'released', 'bio', 'album_art')
 
     # def __init__(self, *args, **kwargs):
     #     super().__init__(*args, **kwargs)
