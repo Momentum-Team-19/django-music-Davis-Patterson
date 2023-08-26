@@ -257,12 +257,11 @@ header {
 .intermediateContainer {
     display: flex;
     justify-content: center;
-    width: 60%;
+    min-width: 60%;
+    max-width: 80%;
 }
 
 .currentAlbumContainer {
-    margin-top: 20px;
-    margin-bottom: 20px;
     display: flex;
     align-items: center;
     border: 1px solid var(--clr-lighter);
@@ -275,6 +274,10 @@ header {
 .detailArtBox {
     display: flex;
     justify-content: center;
+    flex: .5;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 50%;
 }
 
 .detailArtImage {
@@ -283,7 +286,7 @@ header {
     margin-right: 10px;
     box-shadow: 3px 3px 5px #00000020,
         -1px -1px 3px #ffffff;
-    width: 40%;
+    width: 90%;
 }
 
 .albumDetail {
@@ -481,11 +484,12 @@ header {
     font-family: "Arial", sans-serif;
     font-size: 14px;
     /* font-weight: bold; */
-    color: #333;
+    color: var(--clr-dark);
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-top: 10px;
 }
 
 .otherArtBox {
@@ -498,6 +502,7 @@ header {
     width: 90%;
     box-shadow: 3px 3px 5px #00000020,
         -1px -1px 3px #ffffff;
+    border-radius: 10%;
 }
 
 .albumEdit {
