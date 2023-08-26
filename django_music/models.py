@@ -18,7 +18,7 @@ class Album(models.Model):
         Artist, on_delete=models.CASCADE, related_name="albums", default="default")
     title = models.CharField(max_length=200, default='[TITLE]')
     released = models.CharField(max_length=20, default='[N/A]')
-    bio = models.CharField(max_length=600, default='[N/A]')
+    bio = models.CharField(max_length=650, default='[N/A]')
     album_art = models.ImageField(
         upload_to='media/',
         default='media/unavailable.jpg'
