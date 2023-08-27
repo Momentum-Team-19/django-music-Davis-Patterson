@@ -9,7 +9,6 @@
     <link rel="shortcut icon" href="#">
     <script src="{% static 'darkmode.js' %}" defer></script>
     <script src="{% static 'otheralbums.js' %}" defer></script>
-    <script src="{% static 'favorites.js' %}" defer></script>
     <script src="{% static 'fontsize.js' %}" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{% static 'stopdefault.js' %}" defer></script>
@@ -25,14 +24,12 @@
         <img src="{% static 'icons/darkmode.svg' %}" alt="Dark Mode Icon">
     </button>
 
-    <!-- Previous Album -->
-
     <div class="detailContainer">
         <a class="prevAlbum" href="{% if prev_album %}{% url 'album_detail' prev_album.pk %}{% endif %}">
             <h1 class="LtGtImage{% if not has_prev_album %}Disabled{% endif %}">&lt;</h1>
         </a>
         <div class="intermediateContainer">
-            <button class="detail-favorite-toggle" data-album-id="{{ album.id }}">
+            <button class="detail-favorite-toggle" data-album-id="{{ album.id }}" data-csrf-token="{{ csrf_token }}">
                 {% if album in request.user.favorites.all %}
                 <!-- Add a class if the album is in the user's favorites -->
                 <img src="{% static 'icons/filled-heart.svg' %}" alt="Favorite">
@@ -53,7 +50,6 @@
                 </div>
             </div>
         </div>
-        <!-- Next Album -->
         <a class="nextAlbum" href="{% if next_album %}{% url 'album_detail' next_album.pk %}{% endif %}">
             <h1 class="LtGtImage{% if not has_next_album %}Disabled{% endif %}">&gt;</h1>
         </a>
@@ -62,11 +58,12 @@
 
     <div class="otherAlbumContainer">
         <div class="otherContainerColumn">
+            <h1 id="showAlbumsIcon" class="showAlbumsIcon">⌄</h1>
             <div class="otherTitleBox">
                 <p class="otherTitle">Other albums by:</p>
                 <p class="otherTitle2">{{ album.artist }}</p>
             </div>
-            <div class="otherContainer">
+            <div class="otherContainer" id="otherContainer">
                 {% for other_album in other_albums %}
                 <a href="{% url 'album_detail' other_album.pk %}" class="otherAlbums">
                     <button class="other-favorite-toggle" data-album-id="{{ other_album.id }}">
@@ -94,6 +91,9 @@
         <a class="footerOption" href="{% url 'album_list' %}">Back To Album List</a>
         <a class="footerOption" href="{% url 'homepage' %}">Back to Home</a>
     </div>
+    <script>
+        var toggleFavoriteUrl = "{% url 'toggle_favorite' 0 %}";
+    </script>
 </body>
 
 </html>

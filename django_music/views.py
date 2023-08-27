@@ -4,6 +4,7 @@ from .models import Album
 from .forms import AlbumForm
 from django_music.models import User
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 
 # @login_required
@@ -75,17 +76,13 @@ def delete_album(request, pk):
     return render(request, 'album_confirm_delete.html', {'album': album})
 
 
-def toggle_favorite(request, pk, album_id):
-    if request.method == "POST" and request.is_ajax():
-        album = get_object_or_404(User, pk)
-        album = get_object_or_404(Album, pk)
+@csrf_exempt
+def toggle_favorite(request, album_id):
+    if request.method == "POST":
+        album = get_object_or_404(Album, pk=album_id)
         # user = request.user()  <= after authentication
-        user = User.objects.get(pk=1)
-
-        try:
-            album = Album.objects.get(pk=album_id)
-        except Album.DoesNotExist:
-            return JsonResponse({"error": "Album not found"}, status=404)
+        user = User.objects.get(pk=1)  # <= force user until auth is working
+        print(user.favorites.all())
 
         if album in user.favorites.all():
             user.favorites.remove(album)
@@ -94,6 +91,6 @@ def toggle_favorite(request, pk, album_id):
             user.favorites.add(album)
             is_favorite = True
 
-            return JsonResponse({"is_favorite": is_favorite})
+        return JsonResponse({"is_favorite": is_favorite})
 
     return JsonResponse({}, status=400)

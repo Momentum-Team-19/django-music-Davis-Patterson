@@ -15,7 +15,7 @@
     --clr-text3: #858484;
     --clr-text4: #9f9f9f;
 
-    --clr-break: #cccccc;
+    --clr-break: #e5e5e5;
     --clr-accent: #007bff;
     --clr-accent-dark: #0A1045;
     --clr-test: #FF0000;
@@ -39,7 +39,7 @@
     --clr-text3: #929191;
     --clr-text4: #7c7b7b;
 
-    --clr-break: #4f5b67;
+    --clr-break: #353941;
     --clr-accent: #0157b4;
     --clr-accent-dark: #040825;
     --clr-test: #813131;
@@ -177,14 +177,16 @@ header {
 
 .favorite-toggle {
     position: absolute;
-    top: 7px;
-    left: 7px;
+    top: 6px;
+    left: 6px;
     z-index: 2;
     background: transparent;
     border: none;
     cursor: pointer;
     opacity: .2;
     transition: opacity 0.2s;
+    width: 18px;
+    height: 18px;
 }
 
 .favorite-toggle:hover {
@@ -194,12 +196,13 @@ header {
 .favorite-toggle:active {
     opacity: 1;
     transform: translateY(1px);
+    transform: scale(80%);
     transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
 }
 
 .favorite-toggle img {
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
 }
 
 .albumBox {
@@ -354,7 +357,8 @@ header {
 .detail-favorite-toggle:active {
     opacity: 1;
     transform: translateY(1px);
-    transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
+    transform: scale(120%);
+    transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s, ;
 }
 
 .detail-favorite-toggle img {
@@ -577,6 +581,7 @@ header {
 .other-favorite-toggle:active {
     opacity: 1;
     transform: translateY(1px);
+    transform: scale(85%);
     transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
 }
 
@@ -589,28 +594,51 @@ header {
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     width: 100%;
     border-top: 1px solid var(--clr-break);
     padding-top: 15px;
 }
 
 .otherContainer {
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     justify-content: center;
     width: 70%;
+    margin-bottom: 10px;
 }
 
-/* .otherTitleBox {
-    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-lightest);
-    background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
-    border-radius: 5%;
-    padding-top: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin: 5px;
-} */
+.otherTitleBox {
+    position: relative;
+}
+
+#showAlbumsIcon {
+    position: absolute;
+    top: 38.85%;
+    right: 33%;
+    cursor: pointer;
+    opacity: .4;
+    transition: transform .8s ease;
+    width: 20px;
+    color: var(--clr-text3);
+}
+
+#showAlbumsIcon:hover {
+    transform: scale(120%);
+    opacity: .8;
+    transition: transform .2s, opacity .2s;
+}
+
+#showAlbumsIcon:active {
+    transform: translate(-2px);
+    transform: scale(160%);
+    opacity: 1;
+    transition: translate .2s, transform .2s, opacity .2s;
+}
+
+#showIcon {
+    width: 50%;
+}
 
 .otherTitle {
     font-family: "Arial", sans-serif;

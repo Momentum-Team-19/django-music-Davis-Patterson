@@ -24,6 +24,7 @@
 
     <div class="container">
         <div class="container80">
+            <div>{{ user_favorites }}</div>
             {% for album in albums %}
             <a href="{% url 'album_detail' album.pk %}" class="albumBox">
                 <button class="favorite-toggle" data-album-id="{{ album.id }}">
@@ -50,6 +51,9 @@
         <a class="footerOption" href="{% url 'create_album' %}">Create New Album</a>
         <a class="footerOption" href="{% url 'homepage' %}">Back to Home</a>
     </div>
+    <script>
+        var toggleFavoriteUrl = "{% url 'toggle_favorite' 0 %}";
+    </script>
 </body>
 
 </html>
