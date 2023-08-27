@@ -76,18 +76,24 @@ def delete_album(request, pk):
 
 
 def toggle_favorite(request, pk, album_id):
-    album = get_object_or_404(User, pk)
-    album = get_object_or_404(Album, pk)
-    # user = request.user()
-    user = User.objects.get(pk=1)
+    if request.method == "POST" and request.is_ajax():
+        album = get_object_or_404(User, pk)
+        album = get_object_or_404(Album, pk)
+        # user = request.user()  <= after authentication
+        user = User.objects.get(pk=1)
 
-    if request.method == 'POST':
-        form = AlbumForm(request.POST, instance=album)
-        if form.is_valid():
-            form.save()
-            return redirect('album_list')
+        try:
+            album = Album.objects.get(pk=album_id)
+        except Album.DoesNotExist:
+            return JsonResponse({"error": "Album not found"}, status=404)
 
-    else:
-        form = AlbumForm(instance=album)
+        if album in user.favorites.all():
+            user.favorites.remove(album)
+            is_favorite = False
+        else:
+            user.favorites.add(album)
+            is_favorite = True
 
-    return render(request, 'album_form.html', {'form': form})
+            return JsonResponse({"is_favorite": is_favorite})
+
+    return JsonResponse({}, status=400)

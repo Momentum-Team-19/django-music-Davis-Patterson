@@ -26,11 +26,11 @@
     </button>
 
     <!-- Previous Album -->
-    <a class="prevAlbum" href="{% if prev_album %}{% url 'album_detail' prev_album.pk %}{% endif %}">
-        <h1 class="LtGtImage{% if not has_prev_album %}Disabled{% endif %}">&lt;</h1>
-    </a>
 
     <div class="detailContainer">
+        <a class="prevAlbum" href="{% if prev_album %}{% url 'album_detail' prev_album.pk %}{% endif %}">
+            <h1 class="LtGtImage{% if not has_prev_album %}Disabled{% endif %}">&lt;</h1>
+        </a>
         <div class="intermediateContainer">
             <button class="detail-favorite-toggle" data-album-id="{{ album.id }}">
                 {% if album in request.user.favorites.all %}
@@ -53,12 +53,12 @@
                 </div>
             </div>
         </div>
+        <!-- Next Album -->
+        <a class="nextAlbum" href="{% if next_album %}{% url 'album_detail' next_album.pk %}{% endif %}">
+            <h1 class="LtGtImage{% if not has_next_album %}Disabled{% endif %}">&gt;</h1>
+        </a>
     </div>
 
-    <!-- Next Album -->
-    <a class="nextAlbum" href="{% if next_album %}{% url 'album_detail' next_album.pk %}{% endif %}">
-        <h1 class="LtGtImage{% if not has_next_album %}Disabled{% endif %}">&gt;</h1>
-    </a>
 
     <div class="otherAlbumContainer">
         <div class="otherContainerColumn">
