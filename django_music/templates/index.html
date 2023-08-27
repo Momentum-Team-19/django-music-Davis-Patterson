@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'darkmode.js' %}" defer></script>
+    <title>Django Reggae</title>
+</head>
+
+<body>
+    <header>
+        <h1 class="pageName">Django Reggae</h1>
+    </header>
+
+    <button id="darkModeToggle" class="dark-mode-toggle" aria-label="toggle dark mode">
+        <img src="{% static 'icons/darkmode.svg' %}" alt="Dark Mode Icon">
+    </button>
+
+    <div class="containerColumn">
+        <a class="homeOption" href="{% url 'album_list' %}">
+            <div class="homeOptionText">Album List</div>
+        </a>
+        <a class="homeOption" href="{% url 'create_album' %}">
+            <div class="homeOptionText">Create New Album</div>
+        </a>
+    </div>
+    <div class="footerOptions">
+
+    </div>
+</body>
+
+</html>

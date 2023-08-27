@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="shortcut icon" href="#">
+    <script src="{% static 'darkmode.js' %}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'stopdefault.js' %}" defer></script>
+    <title>Album List</title>
+</head>
+
+<body>
+    <header>
+        <h1 class="pageName">Album List</h1>
+    </header>
+
+    <button id="darkModeToggle" class="dark-mode-toggle" aria-label="toggle dark mode">
+        <img src="{% static 'icons/darkmode.svg' %}" alt="Dark Mode Icon">
+    </button>
+
+    <div class="container">
+        <div class="container80">
+            {% for album in albums %}
+            <a href="{% url 'album_detail' album.pk %}" class="albumBox">
+                <button class="favorite-toggle" data-album-id="{{ album.id }}">
+                    {% if album in request.user.favorites.all %}
+                    <!-- Add a class if the album is in the user's favorites -->
+                    <img src="{% static 'icons/filled-heart.svg' %}" alt="Favorite">
+                    {% else %}
+                    <img src="{% static 'icons/empty-heart.svg' %}" alt="Not Favorite">
+                    {% endif %}
+                </button>
+                <div class="albumArtBox">
+                    <img src="{{ album.album_art.url }}" alt="{{ album.title }} Album Art" class="albumArtImage">
+                </div>
+                <div class="detailBox">
+                    <h2 class="albumTitle">{{ album.title }}</h2>
+                    <p class="albumArtist">{{ album.artist }}</p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="footerOptions">
+        <a class="footerOption" href="{% url 'create_album' %}">Create New Album</a>
+        <a class="footerOption" href="{% url 'homepage' %}">Back to Home</a>
+    </div>
+</body>
+
+</html>
