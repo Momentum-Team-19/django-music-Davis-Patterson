@@ -614,8 +614,8 @@ header {
 
 #showAlbumsIcon {
     position: absolute;
-    top: 38.85%;
-    right: 33%;
+    top: 0px;
+    right: -42px;
     cursor: pointer;
     opacity: .4;
     transition: transform .8s ease;

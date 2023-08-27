@@ -7,11 +7,11 @@ showAlbumsIcon.addEventListener("click", function() {
     if (showAlbumsIcon.innerText === "⌄") {
         showAlbumsIcon.innerText = "^";
         otherContainer.style.display = 'none';
-        showAlbumsIcon.style.top = "40.1%";
+        showAlbumsIcon.style.top = "0px";
     } else {
         showAlbumsIcon.innerText = "⌄";
         otherContainer.style.display = 'flex';
-        showAlbumsIcon.style.top = "38.85%";
+        showAlbumsIcon.style.top = "-12px";
     }
 });
 
