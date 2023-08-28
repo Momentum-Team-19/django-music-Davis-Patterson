@@ -13,8 +13,15 @@ def homepage(request):
 
 
 def album_list(request):
+    user = User.objects.get(pk=1)
     albums = Album.objects.all()
-    return render(request, 'album_list.html', {'albums': albums})
+
+    context = {
+        'albums': albums,
+        'user': user,
+    }
+    
+    return render(request, 'album_list.html', context)
 
 
 def create_album(request):
@@ -30,6 +37,7 @@ def create_album(request):
 
 def album_detail(request, album_id):
     album = get_object_or_404(Album, pk=album_id)
+    user = User.objects.get(pk=1)
 
     prev_album = Album.objects.filter(pk__lt=album_id).order_by('-pk').first()
     next_album = Album.objects.filter(pk__gt=album_id).order_by('pk').first()
@@ -42,6 +50,7 @@ def album_detail(request, album_id):
         artist=album.artist).exclude(pk=album.pk)
 
     context = {
+        'user': user,
         'album': album,
         'prev_album': prev_album,
         'next_album': next_album,
