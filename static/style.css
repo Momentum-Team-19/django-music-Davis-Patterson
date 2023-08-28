@@ -932,9 +932,6 @@ header {
 }
 
 .footerOption {
-    /* box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-lightest); */
-    /* background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1)); */
-    /* border: 1px solid var(--clr-break); */
     border-radius: 5%;
     text-decoration: none;
     padding: 5px;
@@ -967,14 +964,3 @@ header {
     color: var(--clr-text1);
     text-align: center;
 }
-
-/* box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-lightest);
-background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
-display: column;
-justify-content: center;
-align-items: center;
-border-radius: 5%;
-padding: 2%;
-margin: 8px;
-text-decoration: none;
-width: 25%; */
