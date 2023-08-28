@@ -31,7 +31,6 @@
         <div class="intermediateContainer">
             <button class="detail-favorite-toggle" data-album-id="{{ album.id }}" data-csrf-token="{{ csrf_token }}">
                 {% if album in request.user.favorites.all %}
-                <!-- Add a class if the album is in the user's favorites -->
                 <img src="{% static 'icons/filled-heart.svg' %}" alt="Favorite">
                 {% else %}
                 <img src="{% static 'icons/empty-heart.svg' %}" alt="Not Favorite">
@@ -88,7 +87,7 @@
     <div class="footerContainer">
         <div class="footerOptions">
             <a class="footerOption" href="{% url 'homepage' %}">
-                <div class="footerText">Back to Home</div>
+                <div class="footerText">Home</div>
             </a>
             <a class="footerOption" href="{% url 'edit_album' album.pk %}">
                 <div class="footerText">Edit Album</div>
@@ -97,10 +96,10 @@
                 <div class="footerText">Delete Album</div>
             </a>
             <a class="footerOption" href="{% url 'album_list' %}">
-                <div class="footerText">Back To Album List</div>
+                <div class="footerText">Album List</div>
             </a>
             <a class="footerOption" href="{% url 'favorites_list' %}">
-                <div class="footerText">Back To Favorites</div>
+                <div class="footerText">Favorites</div>
             </a>
         </div>
     </div>
