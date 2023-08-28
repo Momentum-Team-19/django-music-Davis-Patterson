@@ -1,15 +1,30 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'darkmode.js' %}" defer></script>
     <title>Document</title>
 </head>
 
 <body>
-    {% block content %}
-    {% endblock %}
+    <header>
+        <h1 class="pageName">Login</h1>
+    </header>
+
+    <button id="darkModeToggle" class="dark-mode-toggle" aria-label="toggle dark mode">
+        <img src="{% static 'icons/darkmode.svg' %}" alt="Dark Mode Icon">
+    </button>
+
+    <div class="loginContainer">
+        <div class="loginBox">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
 </body>
 
 </html>
