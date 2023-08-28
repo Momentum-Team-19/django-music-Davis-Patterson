@@ -49,9 +49,15 @@
             <button class="saveButton" type="submit">SAVE</button>
         </form>
     </div>
-    <div class="footerOptions">
-        <a class="footerOption" href="{% url 'album_list' %}">Back to Album List</a>
-        <a class="footerOption" href="{% url 'homepage' %}">Back to Home</a>
+    <div class="footerContainer">
+        <div class="footerOptions">
+            <a class="footerOption" href="{% url 'homepage' %}">
+                <div class="footerText">Back to Home</div>
+            </a>
+            <a class="footerOption" href="{% url 'album_list' %}">
+                <div class="footerText">Back To Album List</div>
+            </a>
+        </div>
     </div>
 </body>
 

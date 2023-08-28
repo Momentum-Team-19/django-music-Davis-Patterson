@@ -15,7 +15,7 @@
 
 <body>
     <header>
-        <h1 class="pageName">Album List</h1>
+        <h1 class="pageName">Favorites</h1>
     </header>
 
     <button id="darkModeToggle" class="dark-mode-toggle" aria-label="toggle dark mode">
@@ -24,8 +24,8 @@
 
     <div class="container">
         <div class="container80">
-            {% for album in albums %}
-            <!-- <div>{{ user }}</div> -->
+            {% if favorite_albums %}
+            {% for album in favorite_albums %}
             <a href="{% url 'album_detail' album.pk %}" class="albumBox">
 
                 <button class="favorite-toggle" data-album-id="{{ album.id }}">
@@ -45,6 +45,9 @@
                 </div>
             </a>
             {% endfor %}
+            {% else %}
+            <p class="noFavoritesText">No Favorites</p>
+            {% endif %}
         </div>
     </div>
 
@@ -56,8 +59,8 @@
             <a class="footerOption" href="{% url 'create_album' %}">
                 <div class="footerText">Create New Album</div>
             </a>
-            <a class="footerOption" href="{% url 'favorites_list' %}">
-                <div class="footerText">View Favorites</div>
+            <a class="footerOption" href="{% url 'album_list' %}">
+                <div class="footerText">View Album List</div>
             </a>
         </div>
         <script>

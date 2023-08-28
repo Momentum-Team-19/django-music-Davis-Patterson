@@ -85,11 +85,24 @@
         </div>
     </div>
 
-    <div class="footerOptions">
-        <a class="footerOption" href="{% url 'edit_album' album.pk %}">Edit Album</a>
-        <a class="footerOption" href="{% url 'delete_album' album.pk %}">Delete Album</a>
-        <a class="footerOption" href="{% url 'album_list' %}">Back To Album List</a>
-        <a class="footerOption" href="{% url 'homepage' %}">Back to Home</a>
+    <div class="footerContainer">
+        <div class="footerOptions">
+            <a class="footerOption" href="{% url 'homepage' %}">
+                <div class="footerText">Back to Home</div>
+            </a>
+            <a class="footerOption" href="{% url 'edit_album' album.pk %}">
+                <div class="footerText">Edit Album</div>
+            </a>
+            <a class="footerOption" href="{% url 'delete_album' album.pk %}">
+                <div class="footerText">Delete Album</div>
+            </a>
+            <a class="footerOption" href="{% url 'album_list' %}">
+                <div class="footerText">Back To Album List</div>
+            </a>
+            <a class="footerOption" href="{% url 'favorites_list' %}">
+                <div class="footerText">Back To Favorites</div>
+            </a>
+        </div>
     </div>
     <script>
         var toggleFavoriteUrl = "{% url 'toggle_favorite' 0 %}";

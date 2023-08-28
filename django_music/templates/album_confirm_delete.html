@@ -29,9 +29,14 @@
             </form>
         </div>
     </div>
-    <div class="footerOptions">
-        <a class="footerOption" href="{% url 'album_detail' album.pk %}">Cancel</a>
+    <div class="footerContainer">
+        <div class="footerOptions">
+            <a class="footerOption" href="{% url 'album_detail' album.pk %}">
+                <div class="footerText">Cancel</div>
+            </a>
+        </div>
     </div>
+
 </body>
 
 </html>

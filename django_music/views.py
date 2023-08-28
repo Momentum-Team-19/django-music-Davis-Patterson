@@ -94,3 +94,12 @@ def toggle_favorite(request, album_id):
         return JsonResponse({"is_favorite": is_favorite})
 
     return JsonResponse({}, status=400)
+
+
+@csrf_exempt
+def favorites_list(request):
+    user = User.objects.get(pk=1)
+
+    favorite_albums = user.favorites.all()
+
+    return render(request, 'favorites_list.html', {'favorite_albums': favorite_albums})
