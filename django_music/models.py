@@ -14,6 +14,8 @@ class Artist(models.Model):
 
 
 class Album(models.Model):
+    user = models.ForeignKey(
+        'User', on_delete=models.CASCADE, related_name='albums')
     artist = models.ForeignKey(
         Artist, on_delete=models.CASCADE, related_name="albums", default="default")
     title = models.CharField(max_length=200, default='[TITLE]')
@@ -34,12 +36,4 @@ class Album(models.Model):
 
 
 class User(AbstractUser):
-    favorites = models.ManyToManyField('Album')
-
-
-# class Favorite(models.Model):
-#     user = models.ForeignKey(
-#         User, on_delete=models.CASCADE, related_name="favorites")
-#     album = models.ForeignKey(
-#         Album, on_delete=models.CASCADE, related_name="favorite_albums")
-#     is_favorite = models.BooleanField(default=False)
+    favorites = models.ManyToManyField('Album', related_name='favUsers')
