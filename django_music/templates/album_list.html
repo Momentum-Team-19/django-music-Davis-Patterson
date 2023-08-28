@@ -24,17 +24,18 @@
 
     <div class="container">
         <div class="container80">
-            <div>{{ user_favorites }}</div>
             {% for album in albums %}
+            <div>{{ request.user.favorites.all }}</div>
             <a href="{% url 'album_detail' album.pk %}" class="albumBox">
+
                 <button class="favorite-toggle" data-album-id="{{ album.id }}">
-                    {% if album in request.user.favorites.all %}
-                    <!-- Add a class if the album is in the user's favorites -->
+                    {% if album in user.favorites.all %}
                     <img src="{% static 'icons/filled-heart.svg' %}" alt="Favorite">
                     {% else %}
                     <img src="{% static 'icons/empty-heart.svg' %}" alt="Not Favorite">
                     {% endif %}
                 </button>
+
                 <div class="albumArtBox">
                     <img src="{{ album.album_art.url }}" alt="{{ album.title }} Album Art" class="albumArtImage">
                 </div>

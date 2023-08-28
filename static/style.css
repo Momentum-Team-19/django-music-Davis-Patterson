@@ -165,6 +165,27 @@ header {
     transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
 }
 
+.darkMode .homeOption {
+    border: 1px solid #363e4a;
+    box-shadow: 3px 3px 5px rgba(147, 154, 162, .1),
+        -3px -3px 5px rgba(58, 63, 72, .5);
+    background: linear-gradient(140deg, rgba(80, 88, 100, 1), rgba(38, 40, 43, 0.1));
+}
+
+.darkMode .homeOption:hover {
+    background: linear-gradient(140deg, rgba(66, 85, 113, 0.8), rgba(32, 54, 86, 0.8));
+    box-shadow: 0 2px 4px rgba(120, 119, 119, 0.2), 0 4px 8px rgba(150, 150, 150, 0.2);
+    transform: translateY(-2px);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.darkMode .homeOption:active {
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.1), inset -2px -2px 4px rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(1px);
+    transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s;
+}
+
 .homeOptionText {
     font-family: "Arial", sans-serif;
     font-size: 18px;
@@ -348,16 +369,14 @@ header {
 
 .detail-favorite-toggle:hover {
     opacity: 1;
-}
-
-.detail-favorite-toggle:hover {
-    opacity: 1;
+    transform: scale(110%);
+    transition: transform .2s;
 }
 
 .detail-favorite-toggle:active {
     opacity: 1;
     transform: translateY(1px);
-    transform: scale(120%);
+    transform: scale(90%);
     transition: box-shadow 0.1s, background-color 0.1s, transform 0.1s, ;
 }
 
@@ -617,7 +636,7 @@ header {
     top: 0px;
     right: -42px;
     cursor: pointer;
-    opacity: .4;
+    opacity: .2;
     transition: transform .8s ease;
     width: 20px;
     color: var(--clr-text3);
@@ -625,13 +644,13 @@ header {
 
 #showAlbumsIcon:hover {
     transform: scale(120%);
-    opacity: .8;
+    opacity: .6;
     transition: transform .2s, opacity .2s;
 }
 
 #showAlbumsIcon:active {
     transform: translate(-2px);
-    transform: scale(160%);
+    transform: scale(90%);
     opacity: 1;
     transition: translate .2s, transform .2s, opacity .2s;
 }
@@ -644,7 +663,7 @@ header {
     font-family: "Arial", sans-serif;
     font-size: 16px;
     font-weight: bold;
-    color: var(--clr-text1);
+    color: var(--clr-text2);
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -654,7 +673,7 @@ header {
 .otherTitle2 {
     font-family: "Arial", sans-serif;
     font-size: 15px;
-    color: var(--clr-text2);
+    color: var(--clr-text3);
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
