@@ -15,14 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, include
 from django_music import views
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path("__debug__/", include("debug_toolbar.urls")),
+    path("__debug__/", include("debug_toolbar.urls")),
     path('', views.homepage, name='homepage'),
     path('album_list', views.album_list, name='album_list'),
     path('albums/new', views.create_album, name='create_album'),
@@ -33,6 +33,7 @@ urlpatterns = [
          views.toggle_favorite, name='toggle_favorite'),
     path('favorites_list/',
          views.favorites_list, name='favorites_list'),
+    path('accounts/', include('registration.backends.simple.urls')),
 ]
 
 if settings.DEBUG:

@@ -5,9 +5,10 @@ from .forms import AlbumForm
 from django_music.models import User
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 
 
-# @login_required
+@login_required
 def homepage(request):
     return render(request, 'index.html')
 
@@ -20,7 +21,7 @@ def album_list(request):
         'albums': albums,
         'user': user,
     }
-    
+
     return render(request, 'album_list.html', context)
 
 
